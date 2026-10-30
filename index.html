@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Application Title -->
+    <title>Live Weather App</title>
+
+    <!-- Link to the external CSS stylesheet for design & layout -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Main container centering the weather application on the screen -->
+    <main class="app-container">
+      
+      <!-- App Header & Title -->
+      <header class="app-header">
+        <h1 class="app-title">Weather App</h1>
+        <p class="app-subtitle">Check real-time weather powered by Open-Meteo API</p>
+      </header>
+
+      <!-- Search Section: Input field & action button -->
+      <section class="search-section">
+        <!-- Text input where the user types a city name (e.g. Chennai, London, Tokyo) -->
+        <input
+          type="text"
+          id="cityInput"
+          class="search-input"
+          placeholder="Enter city name (e.g., Chennai)..."
+          autocomplete="off"
+        />
+
+        <!-- Button that triggers the weather fetch request -->
+        <button id="getWeatherBtn" class="search-btn">Get Weather</button>
+      </section>
+
+      <!-- Status / Feedback Message Area (displays loading or error states) -->
+      <div id="statusMessage" class="status-message" aria-live="polite"></div>
+
+      <!-- Weather Card: Hidden by default until data is successfully fetched -->
+      <article id="weatherCard" class="weather-card hidden">
+        
+        <!-- City Name & Country display -->
+        <div class="card-header">
+          <h2 id="cityName" class="city-name">Chennai, India</h2>
+        </div>
+
+        <!-- Weather Icon (Emoji) & Condition Description -->
+        <div class="weather-visual">
+          <!-- Large emoji representing the current weather (e.g. ☀️, 🌧️, ⛅) -->
+          <span id="weatherEmoji" class="weather-emoji" role="img" aria-label="Weather icon">☀️</span>
+          
+          <!-- Short text description (e.g. Clear Sky, Moderate Rain, Thunderstorm) -->
+          <p id="weatherDesc" class="weather-desc">Clear Sky</p>
+        </div>
+
+        <!-- Weather Metrics: Temperature & Wind Speed -->
+        <div class="weather-details">
+          <!-- Current Air Temperature -->
+          <div class="detail-item">
+            <span class="detail-label">Temperature</span>
+            <p id="temperature" class="detail-value">--°C</p>
+          </div>
+
+          <!-- Wind Speed -->
+          <div class="detail-item">
+            <span class="detail-label">Wind Speed</span>
+            <p id="windSpeed" class="detail-value">-- km/h</p>
+          </div>
+        </div>
+
+        <!-- 3-Day Forecast Section -->
+        <section class="forecast-section">
+          <h3 class="forecast-title">3-Day Forecast</h3>
+          <div id="forecastGrid" class="forecast-grid"></div>
+        </section>
+
+      </article>
+
+    </main>
+
+    <!-- Link to the external JavaScript file handling API requests & DOM updates -->
+    <script src="script.js"></script>
+  </body>
+</html>
